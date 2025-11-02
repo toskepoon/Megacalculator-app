@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One-Button Math Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>One-Button Math Calculator</h1>
+      <p class="sub">Formulas, theorems, classic & “dead” trig functions — all in one place.</p>
+    </header>
+
+    <section class="controls">
+      <div class="row">
+        <label for="mode">Angle Mode</label>
+        <div class="seg">
+          <input type="radio" id="deg"   name="mode" value="deg" checked />
+          <label for="deg">Degrees</label>
+          <input type="radio" id="rad"   name="mode" value="rad" />
+          <label for="rad">Radians</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="calc-select">Calculation</label>
+        <select id="calc-select">
+          <optgroup label="Algebra">
+            <option value="quadraticRoots">Quadratic Roots (ax²+bx+c=0)</option>
+            <option value="discriminant">Discriminant (b² − 4ac)</option>
+            <option value="linearSolve">Solve ax + b = 0</option>
+            <option value="power">Power a^b</option>
+          </optgroup>
+
+          <optgroup label="Geometry / Coordinate">
+            <option value="distance2D">Distance between two points</option>
+            <option value="slope2D">Slope between two points</option>
+            <option value="pythagHyp">Pythagorean (hypotenuse)</option>
+            <option value="lawCosineSide">Law of Cosines (side)</option>
+            <option value="heron">Triangle area (Heron)</option>
+          </optgroup>
+
+          <optgroup label="Trig (classic)">
+            <option value="lawSinesSide">Law of Sines (side)</option>
+            <option value="lawSinesAngle">Law of Sines (angle)</option>
+          </optgroup>
+
+          <optgroup label="Trig (historical / “dead”)">
+            <option value="deadTrigSet">Versine, Coversine, Haversine, Exsecant, Excosecant, Chord, Hacoversine</option>
+            <option value="haversineDistance">Haversine distance (Earth)</option>
+          </optgroup>
+
+          <optgroup label="Logs & Exponentials">
+            <option value="ln">Natural log ln(x)</option>
+            <option value="logBase">Log base b of x</option>
+            <option value="exp">e^x</option>
+          </optgroup>
+
+          <optgroup label="Discrete / Combinatorics">
+            <option value="factorial">Factorial n!</option>
+            <option value="nCr">Combinations nCr</option>
+            <option value="nPr">Permutations nPr</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div id="inputs" class="inputs">
+        <!-- dynamic fields will appear here -->
+      </div>
+
+      <button id="compute" class="btn">Compute</button>
+    </section>
+
+    <section class="output">
+      <h2>Result</h2>
+      <div id="result" class="result"></div>
+
+      <details class="help">
+        <summary>Function notes (quick reference)</summary>
+        <ul>
+          <li><b>Quadratic roots:</b> x = [-b ± √(b²−4ac)] / (2a)</li>
+          <li><b>Pythagorean:</b> c = √(a² + b²)</li>
+          <li><b>Law of Cosines:</b> c = √(a² + b² − 2ab·cos(C))</li>
+          <li><b>Haversine distance:</b> 2R·arcsin(√(hav(Δφ) + cos φ1 cos φ2·hav(Δλ))), R≈6371 km</li>
+          <li><b>Dead trig:</b> versin(θ)=1−cosθ, coversin(θ)=1−sinθ, haversin(θ)=(1−cosθ)/2,
+              exsec(θ)=secθ−1, excsc(θ)=cscθ−1, chord(θ)=2·sin(θ/2), hacoversin(θ)=(1−sinθ)/2.</li>
+          <li><b>Log base:</b> log<sub>b</sub>(x)=ln(x)/ln(b)</li>
+          <li><b>nCr:</b> n! / (r!(n−r)!), &nbsp; <b>nPr:</b> n! / (n−r)!</li>
+        </ul>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <small>Made for fast STEM exploration — one button to run any formula.</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
